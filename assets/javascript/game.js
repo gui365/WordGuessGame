@@ -63,7 +63,7 @@ var hangman = {
                     document.getElementById("picked-letters").textContent = hangman.wrongLetters.join(" ");
                     hangman.lives -=1;
                     if (hangman.lives === 0) {
-                        alert("Game over!");
+                        alert("Game over! The secret word was: " + hangman.hiddenWord.join(""));
                         location.reload();
                     }
                     document.getElementById("lives-left").textContent = "Lives left: " + hangman.lives;
@@ -78,7 +78,7 @@ var hangman = {
 
      winnerListener: function() {
         if (!this.hiddenWord.includes("_")) {
-            alert("You win! The secret word was: " + hangman.hiddenWord.join("").toLocaleLowerCase());
+            alert("You win! The secret word was: " + hangman.hiddenWord.join(""));
             location.reload();
         };
      }
