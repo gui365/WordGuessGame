@@ -1,4 +1,36 @@
-* {
+body {
     background-color: rgb(68, 68, 68);
     color: white;
+    font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main {
+    font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1, h2, p {
+    padding: 0.2rem;
+}
+
+h1, #secret-word {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+main div {
+    text-align: center;
+    padding: 1rem;
+}
+
+li {
+    font-family: monospace;
+    padding: 0.5rem;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-end;
 }

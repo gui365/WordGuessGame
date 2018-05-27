@@ -1,16 +1,14 @@
-// 46, 63, 
-
 var hangman = {
     // I am absolutely sure there is a better way to do this...
     letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
               'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
               'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     // An array of possible secret words
-    words: ['COMPUTER', 'FRIEND', 'SUMMER', 'CATAPULT', 'REQUEST', 'ARMADILLO',
-    'LIGHTHOUSE', 'MOTHER', 'BABOON', 'JAZZ', 'CONCERT', 'DETOX', 'STRAWBERRY',
-    'TABLE', 'CLOWN', 'EXCELLENT', 'PARAGRAPH', 'INTENTION', 'LAUNDRY', 'TRAFFIC',
-    'LOCATION', 'HOSPITAL', 'ENTERTAIN', 'CATERPILLAR', 'BUTTERFLY', 'CROISSANT',
-    'ASPARAGUS', 'THOUSAND', 'ISLAND', 'HOLOGRAM', 'PARACHUTE'],
+    words: ['ARGENTINA', 'BRAZIL', 'CHAMPION', 'GOAL', 'REFEREE', 'SOCCER',
+    'MATCH BALL', 'FAIR PLAY', 'OFFSIDE', 'SIDELINE', 'SUBSTITUTION', 'INJURY', 'FREE KICK',
+    'PENALTY KICK', 'CORNER FLAG', 'GERMANY', 'BELGIUM', 'RED CARD', 'YELLOW CARD', 'FINAL',
+    'RUSSIA', 'TROPHY', 'SHINGUARDS', 'CLEATS', 'TOURNAMENT', 'GLORY',
+    'STADIUM', 'GROUP STAGE', 'SPAIN', 'ENGLAND', 'FRANCE'],
     secretWord: "",
     hiddenWord: [],
     // Number of wrong guesses
@@ -23,11 +21,15 @@ var hangman = {
     // This method randomly picks a word from the "words", "hides" its characters and creates an array of right letters
     hideWord: function(){
         this.secretWord = this.words[Math.floor(Math.random() * this.words.length)];
-        for (var i = 1; i < this.secretWord.length + 1; i++) {
-            this.hiddenWord.push("_");
+        for (var i = 0; i < this.secretWord.length; i++) {
+            if (this.secretWord[i] === " ") {
+                this.hiddenWord.push("&nbsp;");    
+            } else {
+                this.hiddenWord.push("_");
+            }
         };
-        console.log(this.secretWord);
-        console.log(this.hiddenWord);
+        // console.log(this.secretWord);
+        // console.log(this.hiddenWord);
 
         for (let j = 0; j < this.secretWord.length; j++) {
             this.rightLetters.push(this.secretWord[j]);
@@ -44,15 +46,15 @@ var hangman = {
         for (var i = 0; i < hangman.letters.length; i++) {
             if (pressedKey === hangman.letters[i] && hangman.wrongLetters.indexOf(pressedKey) === -1) {
                 // This loop then checks if the letter pressed by the user is in the secret word
-                console.log(hangman.hiddenWord);
+                // console.log(hangman.hiddenWord);
                 for (let h = 0; h < hangman.rightLetters.length; h++) {
                     if (pressedKey === hangman.rightLetters[h]) {
                         letterScore += 1;
-                        console.log("I'm in the word!");
+                        // console.log("I'm in the word!");
                         // PUSH LETTER TO HIDDEN WORD USING h POSITION
                         this.hiddenWord = hangman.hiddenWord.splice(h, 1, hangman.rightLetters[h]);
-                        console.log(h);
-                        console.log(this.hiddenWord);
+                        // console.log(h);
+                        // console.log(this.hiddenWord);
                     };
                 };
                 document.getElementById("secret-word").innerHTML = hangman.hiddenWord.join(" ");
@@ -62,7 +64,7 @@ var hangman = {
                     hangman.wrongLetters.push(pressedKey);
                     document.getElementById("picked-letters").textContent = hangman.wrongLetters.join(" ");
                     hangman.lives -=1;
-                    if (hangman.lives === 0) {
+                    if (hangman.lives <= 0) {
                         alert("Game over! The secret word was: " + hangman.secretWord);
                         location.reload();
                     }

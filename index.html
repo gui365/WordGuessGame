@@ -5,17 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hangman Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" /> -->
-    <!-- LINK TO GOOGLE FONTS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
 
 <body>
-    <h1>Hangman</h1>
-    <h2>Press any letter to get started</h2>
-    <p id="secret-word"></p>
-    <p id="picked-letters"></p>
-    <p id="lives-left"></p>
+    <!-- Header with options -->
+    <!-- <header>
+        <div id="options">
+            <nav>
+                <ul>
+                    <li onclick="hangman.addWord()">ADD</li>
+                    <li onclick="hangman.removeWord()">REMOVE</li>
+                    <li onclick="hangman.customWord()">CUSTOM</li>
+                </ul>
+            </nav>
+        </div>
+    </header> -->
+
+    <!-- Main section where game is displayed -->
+    <main>
+        <div>
+            <h1>FIFA World Cup Hangman</h1>
+            <h2>Press any letter to get started</h2>
+        </div>
+        <div>
+            <p id="secret-word"></p>
+            <p id="picked-letters"></p>
+            <p id="lives-left"></p>
+        </div>
+    </main>
 
 
     <script src="assets/javascript/game.js"></script>
