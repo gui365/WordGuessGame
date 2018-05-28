@@ -87,6 +87,7 @@ var hangman = {
     // This function determines if the player has won
     winnerListener: function() {
         if (!this.hiddenWord.includes("_")) {
+            document.removeEventListener("keyup",hangman.validateKey);
             document.getElementById("sound").volume = 0.2;
             document.getElementById("sound").play();
             document.getElementById("game-result").textContent = "You win!";
@@ -108,6 +109,7 @@ var hangman = {
         hangman.rightLetters = [];
         hangman.wrongLetters = [];
         hangman.hideWord();
+        document.addEventListener("keyup", hangman.validateKey);
     }
 };
 
