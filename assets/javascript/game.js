@@ -1,5 +1,5 @@
 var hangman = {
-    // I am absolutely sure there is a better way to do this...
+    // Valid entries
     letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
               'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
               'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
@@ -13,6 +13,8 @@ var hangman = {
     hiddenWord: [],
     // Number of wrong guesses
     lives: 10,
+    // Number of consecutive wins
+    wins: 0,
     // Letters that are part of the secret word
     rightLetters: [],
     // All non-repeated letters pressed by the user
@@ -35,6 +37,7 @@ var hangman = {
             this.rightLetters.push(this.secretWord[j]);
         };
         // console.log(this.rightLetters);
+        document.getElementById("secret-word").innerHTML = hangman.hiddenWord.join(" ");
     },
 
     // This method will check if the key pressed is a valid key and if it is part of the secret word
@@ -65,8 +68,11 @@ var hangman = {
                     document.getElementById("picked-letters").textContent = hangman.wrongLetters.join(" ");
                     hangman.lives -=1;
                     if (hangman.lives <= 0) {
-                        alert("Game over! The secret word was: " + hangman.secretWord);
-                        location.reload();
+                        document.getElementById("game-result").textContent = "Game over! The secret word was: " + hangman.secretWord;
+                        setTimeout(() => {
+                            location.reload();
+                        }, 4000);
+                        document.removeEventListener("keyup",hangman.validateKey);
                     }
                     document.getElementById("lives-left").textContent = "Lives left: " + hangman.lives;
                 }
@@ -78,15 +84,33 @@ var hangman = {
         hangman.winnerListener();
     },
 
-     winnerListener: function() {
+    // This function determines if the player has won
+    winnerListener: function() {
         if (!this.hiddenWord.includes("_")) {
-            alert("You win! The secret word was: " + hangman.secretWord);
-            location.reload();
+            document.getElementById("sound").volume = 0.2;
+            document.getElementById("sound").play();
+            document.getElementById("game-result").textContent = "You win!";
+            hangman.wins++;
+            document.getElementById("wins").textContent = "Wins: " + hangman.wins;
+            setTimeout(hangman.gameReset, 3000);
         };
-     }
+    },
+
+    // This function resets the game after the player has won
+    gameReset: function() {
+        document.getElementById("game-result").textContent = "";
+        document.getElementById("secret-word").innerHTML = "";
+        document.getElementById("picked-letters").innerHTML = "";
+        hangman.lives = 10;
+        document.getElementById("lives-left").textContent = "Lives left: " + hangman.lives;
+        hangman.secretWord = "";
+        hangman.hiddenWord = [];
+        hangman.rightLetters = [];
+        hangman.wrongLetters = [];
+        hangman.hideWord();
+    }
 };
 
 document.addEventListener("keyup", hangman.validateKey);
 hangman.hideWord();
 document.getElementById("lives-left").textContent = "Lives left: " + hangman.lives;
-document.getElementById("secret-word").innerHTML = hangman.hiddenWord.join(" ");
