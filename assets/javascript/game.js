@@ -71,13 +71,13 @@ var hangman = {
                     if (hangman.lives <= 0) {
                         var audio = new Audio("./assets/audio/boo.mp3");
                         audio.play();
-                        document.getElementById("game-result").textContent = "Game over! The secret word was: " + hangman.secretWord;
+                        document.getElementById("game-result").textContent = "Game over! The word was: " + hangman.secretWord;
                         setTimeout(() => {
                             location.reload();
                         }, 4000);
                         document.removeEventListener("keyup",hangman.validateKey);
                     }
-                    document.getElementById("lives-left").textContent = "Lives left: " + hangman.lives;
+                    document.getElementById("lives-left").textContent = "Lives: " + hangman.lives;
                 }
             };
         };
@@ -106,7 +106,7 @@ var hangman = {
         document.getElementById("secret-word").innerHTML = "";
         document.getElementById("picked-letters").innerHTML = "";
         hangman.lives = 10;
-        document.getElementById("lives-left").textContent = "Lives left: " + hangman.lives;
+        document.getElementById("lives-left").textContent = "Lives: " + hangman.lives;
         hangman.secretWord = "";
         hangman.hiddenWord = [];
         hangman.rightLetters = [];
@@ -118,4 +118,4 @@ var hangman = {
 
 document.addEventListener("keyup", hangman.validateKey);
 hangman.hideWord();
-document.getElementById("lives-left").textContent = "Lives left: " + hangman.lives;
+document.getElementById("lives-left").textContent = "Lives: " + hangman.lives;

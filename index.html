@@ -10,61 +10,52 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
 
-<body>
+<body class="flex">
     <!-- Header with options -->
     <header id="console-top">
         <img src="" alt="Top of the game console">
     </header>
 
     <!-- Main section where game is displayed -->
-    <main>
-        <!-- First of three rows, containing the top part of the screen, which will display the secret word -->
-        <div id="screen-word">
-            <div id="screen-word-left">
+    <main id="screen" class="flex no-padding">
+        <!-- First of three columns, containing icon that turns on when player wins -->
+        <div id="screen-left">
 
-            </div>
-            <div id="screen-word-center">
-                <br>
-                <p id="press-text">Press any letter to get started</p>
-                <p id="secret-word"></p>
-                <p id="lives-left"></p>
-                <p id="wins"></p>
-                <br>
-                <p id="picked-letters"></p>
-                <br>
-                <h2 id="game-result"></h2>
-                
-            </div>
-            <div id="screen-word-right">
-
-            </div>
         </div>
+        
+        <!-- Second column, containing the secret word and main functionality -->
+        <div id="screen-center">
+            <!-- Top row contains lives, instructions and win count -->
+            <div id="screen-center-top" class="flex no-padding">
+                <p id="lives-left"></p>
+                <p id="press-text">Press any letter to get started</p>
+                <p id="wins"></p>
+            </div>
+            <!-- Middle row contains the secret word and wrong letters -->
+            <div id="screen-center-middle">
+                <p id="secret-word"></p>
+            </div>
+            <!-- Middle row contains the secret word and wrong letters -->
+            <div id="screen-center-bottom">
+                <h2 id="game-result"></h2>
+                <p id="picked-letters"></p>
+            </div>
+            
+        <!-- Last column, containing icon that turns on when player loses -->
+        </div>
+        
+        <div id="screen-right">
+
+        </div>
+    </main>
 
         <!-- Second of three rows, containing the bottom part of the screen, which will display the wrong letters -->
-        <div id="screen-letters">
-            <div id="screen-letters-left">
-
-            </div>
-            <div id="screen-letters-center">
-            
-            </div>
-            <div id="screen-letters-right">
-
-            </div>
-        </div>
-
-        <!-- Last row, containing the bottom of the console -->
-        <div id="console-bottom">
-
-        </div>
-
-        
-        
+ 
+  
         <br>
         <hr>
         <audio id="sound" src="./assets/audio/goal.mp3"></audio>
         
-    </main>
 
 
     <script src="assets/javascript/game.js"></script>
