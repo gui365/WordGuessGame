@@ -1,3 +1,7 @@
+/* div {
+    border: red 1px dotted;
+} */
+
 @font-face {
     font-family: 'Digital';
     src: url("../fonts/digital-7.ttf");
@@ -6,11 +10,19 @@
 body {
     background-color: rgb(238, 238, 228);
     font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     width: 100%;
     /* line-height: 0.9; */
+}
+
+header {
+    width: 85vw;
+    text-align: center;
+}
+
+a {
+    color: rgb(30, 29, 31);
 }
 
 main {
@@ -42,18 +54,17 @@ main div {
     font-family: 'Digital', 'Courier New', Courier, monospace;
     color: rgb(30, 29, 31);
     font-size: 1.3rem;
-    flex-wrap: wrap;
     flex-direction: row;
     margin: 0;
 }
 
 #screen-center {
-    width: 60%;
+    width: 55%;
     position: relative;
 }
 
 #screen-left, #screen-right {
-    width: 10%;
+    width: 15%;
 }
 
 #secret-word {
@@ -63,10 +74,6 @@ main div {
 #press-text {
     animation: blink 1s infinite;
 }
-
-/* div {
-    border: red 1px dotted;
-} */
 
 #screen-center-top {
     justify-content: space-between;
@@ -95,6 +102,12 @@ main div {
     opacity: 0.2;
 }
 
+.img-win-lose {
+    width: 100%;
+    margin-top: 3rem;
+    opacity: 0.15;
+}
+
 /* ANIMATIONS */
 
 @keyframes blink {
@@ -121,6 +134,8 @@ main div {
     }
 }
 
+
+
 /* SOME COMMON CLASSES */
 
 .flex {
@@ -137,4 +152,8 @@ main div {
 
 .align-center {
     align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }

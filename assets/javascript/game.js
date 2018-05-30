@@ -71,12 +71,13 @@ var hangman = {
                     if (hangman.lives <= 0) {
                         var audio = new Audio("./assets/audio/boo.mp3");
                         audio.play();
+                        document.getElementById("msg-lose").style.setProperty("opacity", "1");
                         document.getElementById("heart2").remove();
                         document.getElementById("heart1").setAttribute("class", "hearts no-lives");
                         document.getElementById("game-result").textContent = "Game over! The word was: " + hangman.secretWord;
                         setTimeout(() => {
                             location.reload();
-                        }, 4000);
+                        }, 4500);
                         document.removeEventListener("keyup",hangman.validateKey);
                     }
                     document.getElementById("lives-left").textContent = "Lives: " + hangman.lives;
@@ -95,10 +96,11 @@ var hangman = {
             document.removeEventListener("keyup",hangman.validateKey);
             // document.getElementById("sound").volume = 0.2;
             document.getElementById("sound").play();
+            document.getElementById("msg-goal").style.setProperty("opacity", "1");
             document.getElementById("game-result").textContent = "You win!";
             hangman.wins++;
             document.getElementById("wins").textContent = "Wins: " + hangman.wins;
-            setTimeout(hangman.gameReset, 3000);
+            setTimeout(hangman.gameReset, 3500);
         };
     },
 
@@ -107,6 +109,8 @@ var hangman = {
         document.getElementById("game-result").textContent = "";
         document.getElementById("secret-word").innerHTML = "";
         document.getElementById("picked-letters").innerHTML = "";
+        document.getElementById("msg-goal").style.setProperty("opacity", "0.15");
+        document.getElementById("msg-lose").style.setProperty("opacity", "0.15");
         hangman.lives = 10;
         document.getElementById("lives-left").textContent = "Lives: " + hangman.lives;
         hangman.secretWord = "";

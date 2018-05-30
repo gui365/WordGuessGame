@@ -6,24 +6,30 @@
     <title>Hangman Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 
-<body class="flex justify-center">
+<body class="flex justify-center flex-wrap">
     <!-- Header with options -->
-    <header id="console-top">
-        <img src="" alt="Top of the game console">
+    <header>
+        <div id="header-logo">
+            <img src="" alt="Top of the game console">
+        </div>
     </header>
 
     <!-- Main section where game is displayed -->
-    <main id="screen" class="flex no-padding justify-center">
-        <!-- First of three columns, containing icon that turns on when player wins -->
-        <div id="screen-left">
+    <main id="screen" class="flex no-padding justify-center flex-wrap">
 
+        <!-- FIRST COLUMN, containing icon that turns on when player wins -->
+        <div id="screen-left">
+            <div>
+                <img id="msg-goal" class="img-win-lose" src="./assets/images/msg-goal-tr.png" alt="Goal!">
+            </div>
         </div>
         
-        <!-- Second column, containing the secret word and main functionality -->
+        <!-- SECOND COLUMN, containing the secret word and main functionality -->
         <div id="screen-center">
             <!-- Top row contains lives, instructions and win count -->
             <div id="screen-center-top" class="flex no-padding align-center">
@@ -36,6 +42,7 @@
                 </div>
                 <p id="press-text">Press any letter to get started</p>
                 <p id="wins"></p>
+                <a href="https://github.com/gui365/WordGuessGame" title="View repo" target="_blank"><i class="fab fa-github fa-lg"></i></a>
             </div>
             <!-- Middle row contains the secret word and wrong letters -->
             <div id="screen-center-middle">
@@ -46,24 +53,18 @@
                 <h2 id="game-result"></h2>
                 <p id="picked-letters"></p>
             </div>
-            
-        <!-- Last column, containing icon that turns on when player loses -->
         </div>
         
+        <!-- THIRD COLUMN, containing icon that turns on when player loses -->
         <div id="screen-right">
-
+            <div>
+                <img id="msg-lose" class="img-win-lose" src="./assets/images/msg-lost-tr.png" alt="You lose">
+            </div>
         </div>
     </main>
 
-        <!-- Second of three rows, containing the bottom part of the screen, which will display the wrong letters -->
- 
-  
-        <br>
-        <hr>
-        <audio id="sound" src="./assets/audio/goal.mp3"></audio>
-        
-
-
+    <audio id="sound" src="./assets/audio/goal.mp3"></audio>
+    
     <script src="assets/javascript/game.js"></script>
 </body>
 </html>
