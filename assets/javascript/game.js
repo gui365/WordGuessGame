@@ -4,11 +4,11 @@ var hangman = {
               'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
               'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     // An array of possible secret words
-    words: ['ARGENTINA', 'BRAZIL', 'CHAMPION', 'GOAL', 'REFEREE', 'SOCCER',
+    words: ['GOALKEEPER', 'FORWARD', 'CHAMPION', 'GOAL', 'REFEREE', 'EXTRA TIME',
     'MATCH BALL', 'FAIR PLAY', 'OFFSIDE', 'SIDELINE', 'SUBSTITUTION', 'INJURY', 'FREE KICK',
-    'PENALTY KICK', 'CORNER FLAG', 'GERMANY', 'BELGIUM', 'RED CARD', 'YELLOW CARD', 'FINAL',
-    'RUSSIA', 'TROPHY', 'SHINGUARDS', 'CLEATS', 'TOURNAMENT', 'GLORY',
-    'STADIUM', 'GROUP STAGE', 'SPAIN', 'ENGLAND', 'FRANCE'],
+    'PENALTY KICK', 'CORNER FLAG', 'MIDFIELDER', 'WORLD CUP', 'RED CARD', 'YELLOW CARD', 'FINAL',
+    'WINGER', 'TROPHY', 'SHINGUARDS', 'CLEATS', 'TOURNAMENT', 'GLORY', 'STOPPER', 'STRIKER',
+    'STADIUM', 'GROUP STAGE', 'SWEEPER', 'FULL BACK', 'CENTRE BACK', 'JERSEY', 'WHISTLE'],
     secretWord: "",
     hiddenWord: [],
     // Number of wrong guesses
@@ -71,6 +71,8 @@ var hangman = {
                     if (hangman.lives <= 0) {
                         var audio = new Audio("./assets/audio/boo.mp3");
                         audio.play();
+                        document.getElementById("heart2").remove();
+                        document.getElementById("heart1").setAttribute("class", "hearts no-lives");
                         document.getElementById("game-result").textContent = "Game over! The word was: " + hangman.secretWord;
                         setTimeout(() => {
                             location.reload();

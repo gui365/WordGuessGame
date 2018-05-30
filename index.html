@@ -10,14 +10,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
 
-<body class="flex">
+<body class="flex justify-center">
     <!-- Header with options -->
     <header id="console-top">
         <img src="" alt="Top of the game console">
     </header>
 
     <!-- Main section where game is displayed -->
-    <main id="screen" class="flex no-padding">
+    <main id="screen" class="flex no-padding justify-center">
         <!-- First of three columns, containing icon that turns on when player wins -->
         <div id="screen-left">
 
@@ -26,8 +26,14 @@
         <!-- Second column, containing the secret word and main functionality -->
         <div id="screen-center">
             <!-- Top row contains lives, instructions and win count -->
-            <div id="screen-center-top" class="flex no-padding">
-                <p id="lives-left"></p>
+            <div id="screen-center-top" class="flex no-padding align-center">
+                <div class="flex no-padding align-center">
+                    <div id="hearts-div" class="flex  align-center" style="position: relative;">
+                        <img id="heart1" class="hearts" src="./assets/images/heart1-tr.png">
+                        <img id="heart2" class="hearts" src="./assets/images/heart2-tr.png">
+                    </div>
+                    <p id="lives-left"></p>
+                </div>
                 <p id="press-text">Press any letter to get started</p>
                 <p id="wins"></p>
             </div>

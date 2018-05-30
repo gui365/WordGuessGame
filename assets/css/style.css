@@ -8,18 +8,9 @@ body {
     font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 100%;
     /* line-height: 0.9; */
-}
-
-.flex {
-    display: flex;
-}
-
-.no-padding {
-    padding: 0;
 }
 
 main {
@@ -46,14 +37,13 @@ main div {
 #screen {
     background-image: url("../images/screen3.jpg");
     background-size: 100% 100%;
-    height: 400px;
-    width: 80vw;
+    height: 350px;
+    width: 85vw;
     font-family: 'Digital', 'Courier New', Courier, monospace;
     color: rgb(30, 29, 31);
     font-size: 1.3rem;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
     margin: 0;
 }
 
@@ -70,25 +60,13 @@ main div {
     font-size: 3.5rem;
 }
 
-@keyframes blink {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0.2;
-    }
-}
-
 #press-text {
-    animation: blink;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
+    animation: blink 1s infinite;
 }
 
-div {
+/* div {
     border: red 1px dotted;
-}
+} */
 
 #screen-center-top {
     justify-content: space-between;
@@ -100,4 +78,63 @@ div {
     width: fit-content;
     bottom: 30px;
     text-align: left;
+}
+
+.hearts {
+    height: 30px;
+    animation: beating-heart infinite;
+    position: absolute;
+    left: 0;
+}
+
+#heart2 {
+    animation: beating-heart infinite 1.5s;
+}
+
+.no-lives {
+    opacity: 0.2;
+}
+
+/* ANIMATIONS */
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
+@keyframes beating-heart {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* SOME COMMON CLASSES */
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.align-center {
+    align-items: center;
 }
