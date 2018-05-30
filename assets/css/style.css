@@ -21,6 +21,10 @@ header {
     text-align: center;
 }
 
+#hangman-logo {
+    width: 30%;
+}
+
 a {
     color: rgb(30, 29, 31);
 }
