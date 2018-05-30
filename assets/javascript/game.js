@@ -91,7 +91,7 @@ var hangman = {
     winnerListener: function() {
         if (!this.hiddenWord.includes("_")) {
             document.removeEventListener("keyup",hangman.validateKey);
-            document.getElementById("sound").volume = 0.2;
+            // document.getElementById("sound").volume = 0.2;
             document.getElementById("sound").play();
             document.getElementById("game-result").textContent = "You win!";
             hangman.wins++;
