@@ -45,6 +45,7 @@ var hangman = {
         var pressedKey = event.key.toUpperCase();
         var letterScore = 0;
         
+        document.getElementById("press-text").innerHTML = "&nbsp;";
         // This loop first checks that the key pressed is a letter
         for (var i = 0; i < hangman.letters.length; i++) {
             if (pressedKey === hangman.letters[i] && hangman.wrongLetters.indexOf(pressedKey) === -1) {
@@ -68,6 +69,8 @@ var hangman = {
                     document.getElementById("picked-letters").textContent = hangman.wrongLetters.join(" ");
                     hangman.lives -=1;
                     if (hangman.lives <= 0) {
+                        var audio = new Audio("./assets/audio/boo.mp3");
+                        audio.play();
                         document.getElementById("game-result").textContent = "Game over! The secret word was: " + hangman.secretWord;
                         setTimeout(() => {
                             location.reload();

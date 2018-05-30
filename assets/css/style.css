@@ -1,23 +1,33 @@
+@font-face {
+    font-family: 'Digital';
+    src: url("../fonts/digital-7.ttf");
+}
+
 body {
-    background-color: rgb(68, 68, 68);
-    color: white;
+    background-color: rgb(238, 238, 228);
     font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 main {
     font-family: 'Montserrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-h1, h2, p {
+h2, p {
     padding: 0.2rem;
 }
 
-h1, #secret-word {
+#secret-word {
     font-size: 1.5rem;
 }
 
-h2 {
-    font-size: 1.2rem;
+h2, #picked-letters {
+    font-size: 2rem;
 }
 
 main div {
@@ -33,4 +43,53 @@ li {
 ul {
     display: flex;
     justify-content: flex-end;
+}
+
+#screen-word-center {
+    background-image: url("../images/screen3.jpg");
+    background-size: 100% 100%;
+    height: 300px;
+    width: 70%;
+    font-family: 'Digital', 'Courier New', Courier, monospace;
+    color: rgb(30, 29, 31);
+    font-size: 1.3rem;
+}
+
+/* #screen-word-left, #screen-letters-left, #screen-word-right, #screen-letters-right {
+    width: 10%;
+    border: white solid 1px;
+} */
+
+#screen-word, #screen-letters {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 90vw;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+#secret-word {
+    font-size: 3.5rem;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
+#press-text {
+    animation: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+div {
+    border: grey 1px dotted;
 }

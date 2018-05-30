@@ -12,34 +12,58 @@
 
 <body>
     <!-- Header with options -->
-    <!-- <header>
-        <div id="options">
-            <nav>
-                <ul>
-                    <li onclick="hangman.addWord()">ADD</li>
-                    <li onclick="hangman.removeWord()">REMOVE</li>
-                    <li onclick="hangman.customWord()">CUSTOM</li>
-                </ul>
-            </nav>
-        </div>
-    </header> -->
+    <header id="console-top">
+        <img src="" alt="Top of the game console">
+    </header>
 
     <!-- Main section where game is displayed -->
     <main>
-        <div>
-            <h1>FIFA World Cup Hangman</h1>
-            <h2>Press any letter to get started</h2>
+        <!-- First of three rows, containing the top part of the screen, which will display the secret word -->
+        <div id="screen-word">
+            <div id="screen-word-left">
+
+            </div>
+            <div id="screen-word-center">
+                <br>
+                <p id="press-text">Press any letter to get started</p>
+                <p id="secret-word"></p>
+                <p id="lives-left"></p>
+                <p id="wins"></p>
+                <br>
+                <p id="picked-letters"></p>
+                <br>
+                <h2 id="game-result"></h2>
+                
+            </div>
+            <div id="screen-word-right">
+
+            </div>
         </div>
-        <div>
-            <p id="secret-word"></p>
-            <p id="picked-letters"></p>
-            <p id="lives-left"></p>
-            <br>
-            <hr>
-            <audio id="sound" src="./assets/audio/ta-da.mp3"></audio>
-            <h2 id="game-result"></h2>
-            <p id="wins"></p>
+
+        <!-- Second of three rows, containing the bottom part of the screen, which will display the wrong letters -->
+        <div id="screen-letters">
+            <div id="screen-letters-left">
+
+            </div>
+            <div id="screen-letters-center">
+            
+            </div>
+            <div id="screen-letters-right">
+
+            </div>
         </div>
+
+        <!-- Last row, containing the bottom of the console -->
+        <div id="console-bottom">
+
+        </div>
+
+        
+        
+        <br>
+        <hr>
+        <audio id="sound" src="./assets/audio/ta-da.mp3"></audio>
+        
     </main>
 
 
