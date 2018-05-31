@@ -8,7 +8,9 @@
 }
 
 body {
-    background-color: rgb(238, 238, 228);
+    /* background-color: rgb(238, 238, 228); */
+    background-image: url("../images/bck1.jpg");
+    background-size: 100%;
     font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     flex-direction: column;
     align-items: center;
@@ -52,7 +54,7 @@ main div {
 }
 
 #screen {
-    background-image: url("../images/screen3.jpg");
+    background-image: url("../images/screen5-tr.png");
     background-size: 100% 100%;
     height: 350px;
     width: 85vw;
