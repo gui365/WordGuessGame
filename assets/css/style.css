@@ -25,6 +25,7 @@ header {
 
 #hangman-logo {
     width: 30%;
+    margin-top: 1rem;
 }
 
 a {
